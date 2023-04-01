@@ -141,7 +141,7 @@ app.get('/profile', auth, async (req, res) => {
 });
 
 // Transfer money route
-app.post('/transfer', auth, async (req, res) => {
+app.post('/pay-money', auth, async (req, res) => {
   const { receiverUsername, amount } = req.body;
 
   try {
@@ -179,6 +179,41 @@ app.post('/transfer', auth, async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
+// Admin route
+app.get('/admin', auth, async (req, res) => {
+  try {
+    const users = await User.find().select('username wallet transactions').populate('transactions');
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Could not get users' });
+  }
+});
+
+// Add money route
+app.post('/add-money', auth, async (req, res) => {
+  try {
+    const { amount, pin, username } = req.body;
+    const user = await User.findOne({username});
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    // Check if the provided pin matches the user's pin
+    const isPinValid = await bcrypt.compare(pin, user.pin);
+    if (!isPinValid) {
+      return res.status(401).json({ message: 'Invalid pin' });
+    }
+
+    // Add money to the user's wallet
+    user.wallet += amount;
+    await user.save();
+    res.json({ message: 'Money added successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Could not add money' });
+  }
+});
+
 
 // Start server
 app.listen(process.env.PORT, () => console.log("Server running on port ${ process.env.PORT }"));
