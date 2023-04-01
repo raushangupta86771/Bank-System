@@ -1,3 +1,15 @@
+This is an API endpoint to create a new user account. The request body should contain the user's username, password, and pin. The response will contain a message indicating whether the user was created successfully or not.
+
+This is a request body containing the user's username and password. The response will contain an authorization token that can be used to access protected routes.
+
+This is an API endpoint to view a user's profile. The request should contain an authorization token in the header. The response will contain the user's username, wallet balance, and transactions.
+
+This is an API endpoint to add money to a user's wallet using a 6-digit PIN. The request should contain the user's username, the amount to be added, and the 6-digit PIN. The response will contain a message indicating whether the transaction was successful or not.
+
+This is an API endpoint to pay money from a user's wallet to another user's wallet. The request should contain the sender's username, the receiver's username, and the amount to be transferred. The response will contain a message indicating whether the transaction was successful or not.
+
+This is an API endpoint for an admin to view all user accounts. The request should contain an authorization token in the header. The response will contain a list of all user accounts.
+
 1. API endpoint to create a new user account
 localhost:5000/signup
 
