@@ -1,17 +1,20 @@
 1. API endpoint to create a new user account
 localhost:5000/signup
+
 body
 {
 "username": "raushan",
 "password": "password123",
 "pin":"123456"
 }
+
 response
 {
   "msg": "User created"
 }
  
 ![image](https://user-images.githubusercontent.com/97835784/229308268-37151ebe-1eb3-4b07-89dc-e41cfa6ff91e.png)
+
 ![image](https://user-images.githubusercontent.com/97835784/229308275-7a8f6222-e93e-4812-b70b-0a565bd5e024.png)
 
  
@@ -20,12 +23,14 @@ response
 
 
 2. Request body containing the user's username and password
+
 Request:
 {
 "username": "raushan",
 "password": "password123",
 "pin":"123456"
 }
+
 Response:
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjg2NWE5MTRkZTRkMWQwYjliMzFmNCIsImlhdCI6MTY4MDM2OTI3NX0.Pn326IUbN0lrnaePRN2CBoJDS0v4tUfyTaPK41ADc8I"
@@ -41,7 +46,9 @@ GET localhost:5000/profile
 // Header containing the authorization token
 
 Headers:
+
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
 // Response containing user's username, wallet balance, and transactions
 
 Response:
