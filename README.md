@@ -1,15 +1,5 @@
 This is an API endpoint to create a new user account. The request body should contain the user's username, password, and pin. The response will contain a message indicating whether the user was created successfully or not.
 
-This is a request body containing the user's username and password. The response will contain an authorization token that can be used to access protected routes.
-
-This is an API endpoint to view a user's profile. The request should contain an authorization token in the header. The response will contain the user's username, wallet balance, and transactions.
-
-This is an API endpoint to add money to a user's wallet using a 6-digit PIN. The request should contain the user's username, the amount to be added, and the 6-digit PIN. The response will contain a message indicating whether the transaction was successful or not.
-
-This is an API endpoint to pay money from a user's wallet to another user's wallet. The request should contain the sender's username, the receiver's username, and the amount to be transferred. The response will contain a message indicating whether the transaction was successful or not.
-
-This is an API endpoint for an admin to view all user accounts. The request should contain an authorization token in the header. The response will contain a list of all user accounts.
-
 1. API endpoint to create a new user account
 localhost:5000/signup
 
@@ -33,8 +23,9 @@ response
 
 
 
-
 2. Request body containing the user's username and password
+
+This is a request body containing the user's username and password. The response will contain an authorization token that can be used to access protected routes.
 
 Request:
 {
@@ -54,6 +45,9 @@ Response:
 
 
 3. API endpoint to view user profile
+
+This is an API endpoint to view a user's profile. The request should contain an authorization token in the header. The response will contain the user's username, wallet balance, and transactions.
+
 GET localhost:5000/profile
 // Header containing the authorization token
 
@@ -74,7 +68,9 @@ Response:
 
 
 
-//API endpoint to add money to user's wallet using a 6-digit PIN
+4. API endpoint to add money to user's wallet using a 6-digit PIN
+
+This is an API endpoint to add money to a user's wallet using a 6-digit PIN. The request should contain the user's username, the amount to be added, and the 6-digit PIN. The response will contain a message indicating whether the transaction was successful or not.
 
 localhost:5000/add-money
 
@@ -96,12 +92,18 @@ Response:
  
 
 
-API endpoint to pay money from user's wallet to another user's wallet
+5. API endpoint to pay money from user's wallet to another user's wallet
+
+This is an API endpoint to pay money from a user's wallet to another user's wallet. The request should contain the sender's username, the receiver's username, and the amount to be transferred. The response will contain a message indicating whether the transaction was successful or not.
+
 localhost:5000/pay-money
  ![image](https://user-images.githubusercontent.com/97835784/229308309-8853ae10-8dfa-4cba-b853-fafe2bdcf95d.png)
 
 
-API endpoint for admin to view all user accounts
+6. API endpoint for admin to view all user accounts
+
+This is an API endpoint for an admin to view all user accounts. The request should contain an authorization token in the header. The response will contain a list of all user accounts.
+
 GET : localhost:5000/admin
 
 ![image](https://user-images.githubusercontent.com/97835784/229308316-a08f6908-42eb-42c6-8665-fea82fb882af.png)
